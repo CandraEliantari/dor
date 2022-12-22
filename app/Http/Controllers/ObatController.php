@@ -143,7 +143,7 @@ class ObatController extends Controller
             'stok' => $validatedData['stok'],
         ]);
 
-        return redirect()->route('obat.index')->with('success', 'Data obat berhasil dibuat');
+        return redirect()->route('obat.serverSide')->with('success', 'Data obat berhasil dibuat');
     }
 
     /**
@@ -205,18 +205,18 @@ class ObatController extends Controller
         return redirect()->route('obat.index')->with('success', 'Data obat berhasil dihapus');
     }
 
-    public function export()
-    {
-        return Excel::download(new ObatExport, 'daftar-obat.xlsx');
-    }
+    // public function export()
+    // {
+    //     return Excel::download(new ObatExport, 'daftar-obat.xlsx');
+    // }
 
-    public function import(Request $request)
-    {
+    // public function import(Request $request)
+    // {
 
-        $file = $request->file('file');
-        $import = new ObatsImport;
-        Excel::queueImport($import, $file);
+    //     $file = $request->file('file');
+    //     $import = new ObatsImport;
+    //     Excel::queueImport($import, $file);
 
-        return redirect(route('obat.serverSide'))->with('success', 'Excel Berhasil Di-Upload');
-    }
+    //     return redirect(route('obat.serverSide'))->with('success', 'Excel Berhasil Di-Upload');
+    // }
 }

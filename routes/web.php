@@ -38,7 +38,6 @@ Route::get('/reset', function(){
 
 Route::get('login', [UserController::class, 'login'])->name('login');
 Route::post('login', [UserController::class, 'actionLogin'])->name('actionLogin');
-
 Route::get('register', [UserController::class, 'register'])->name('register');
 Route::post('register', [UserController::class, 'actionRegister'])->name('actionRegister');
 
